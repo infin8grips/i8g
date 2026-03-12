@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeonLab | High-End Minimalist Design</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-deep: #050505;
+            --bg-card: #111111;
+            --accent-neon: #ff5f00;
+            --accent-glow: rgba(255, 95, 0, 0.5);
+            --text-main: #ffffff;
+            --text-dim: #888888;
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-deep);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* --- Navigation --- */
+        header {
+            padding: 2rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.4rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .logo span {
+            color: var(--accent-neon);
+        }
+
+        .nav-links a {
+            color: var(--text-dim);
+            text-decoration: none;
+            margin-left: 2rem;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-neon);
+        }
+
+        /* --- Hero --- */
+        .hero {
+            padding: 10rem 0 6rem;
+            text-align: center;
+            animation: fadeIn 1.2s ease-out;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.8rem, 10vw, 5.5rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            letter-spacing: -2px;
+        }
+
+        .hero p {
+            color: var(--text-dim);
+            font-size: 1.2rem;
+            max-width: 650px;
+            margin: 0 auto 3rem;
+        }
+
+        /* --- Buttons --- */
+        .btn {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            background: var(--accent-neon);
+            color: #000;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 2px;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px var(--accent-glow);
+            background: #ffffff;
+        }
+
+        /* --- About Section --- */
+        .about {
+            padding: 6rem 0;
+            border-top: 1px solid #1a1a1a;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .about p {
+            color: var(--text-dim);
+            margin-bottom: 1rem;
+        }
+
+        /* --- Search & Grid --- */
+        .shop-header {
+            text-align: center;
+            margin: 6rem 0 3rem;
+        }
+
+        #productSearch {
+            width: 100%;
+            max-width: 450px;
+            padding: 1.2rem;
+            background: #111;
+            border: 1px solid #222;
+            color: white;
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        #productSearch:focus {
+            border-color: var(--accent-neon);
+            outline: none;
+            box-shadow: 0 0 15px rgba(255, 95, 0, 0.2);
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 8rem;
+        }
+
+        .product-card {
+            background: var(--bg-card);
+            padding: 2.5rem;
+            border-radius: 4px;
+            border: 1px solid #1a1a1a;
+            transition: var(--transition);
+        }
+
+        .product-card:hover {
+            border-color: var(--accent-neon);
+            transform: scale(1.02);
+        }
+
+        .product-card i {
+            font-size: 2rem;
+            color: var(--accent-neon);
+            margin-bottom: 1.5rem;
+        }
+
+        /* --- Newsletter --- */
+        .newsletter {
+            background: linear-gradient(145deg, #0f0f0f, #050505);
+            padding: 5rem 2rem;
+            text-align: center;
+            border: 1px solid #1a1a1a;
+            margin-bottom: 6rem;
+        }
+
+        .newsletter h2 { font-size: 2rem; margin-bottom: 1rem; }
+
+        .input-group {
+            display: flex;
+            justify-content: center;
+            max-width: 500px;
+            margin: 2rem auto 0;
+        }
+
+        .input-group input {
+            flex: 1;
+            padding: 1rem;
+            border: 1px solid #222;
+            background: #000;
+            color: white;
+            outline: none;
+        }
+
+        .input-group button {
+            background: var(--accent-neon);
+            color: #000;
+            border: none;
+            padding: 0 1.5rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .input-group button:hover { background: #fff; }
+
+        /* --- Social & Footer --- */
+        .social-area {
+            text-align: center;
+            padding: 4rem 0;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-icons a {
+            color: var(--text-dim);
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .social-icons a:hover {
+            color: var(--accent-neon);
+            transform: translateY(-3px);
+        }
+
+        footer {
+            border-top: 1px solid #1a1a1a;
+            padding: 3rem 0;
+            text-align: center;
+            color: #444;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .nav-links { display: none; }
+            .input-group { flex-direction: column; gap: 1rem; }
+            .input-group button { padding: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="logo">NEON<span>LAB</span></div>
+        <nav class="nav-links">
+            <a href="#about">About</a>
+            <a href="#shop">Products</a>
+            <a href="#newsletter">Join</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>STAY <span style="color: var(--accent-neon);">BOLD</span>.</h1>
+        <p>Premium digital assets crafted for the next generation of creators. High contrast, high performance.</p>
+        <a href="#shop" class="btn">View Collection</a>
+    </section>
+
+    <section class="about" id="about">
+        <div class="about-grid">
+            <div>
+                <h2>Beyond the <span style="color: var(--accent-neon);">Glow</span>.</h2>
+                <p>NeonLab is a boutique design studio specializing in minimalist interfaces that leave a lasting impression. We believe that less is more, but only if that "less" is perfect.</p>
+                <p>Our philosophy is rooted in the intersection of brutalist architecture and futuristic digital trends.</p>
+            </div>
+            <div style="background: #111; height: 300px; border-radius: 4px; display: flex; align-items: center; justify-content: center; border: 1px dashed #333;">
+                <span style="color: #333; font-weight: 800; font-size: 3rem;">IMAGE_PLACEHOLDER</span>
+            </div>
+        </div>
+    </section>
+
+    <div class="shop-header" id="shop">
+        <h2 style="margin-bottom: 1rem;">The Hardware Shop</h2>
+        <input type="text" id="productSearch" placeholder="Search by name or category..." onkeyup="filterProducts()">
+    </div>
+
+    <div class="product-grid" id="productGrid">
+        <div class="product-card">
+            <i class="fas fa-microchip"></i>
+            <h3>Cyber Core V1</h3>
+            <p>Processing power redefined for aesthetic workflows.</p>
+        </div>
+        <div class="product-card">
+            <i class="fas fa-bolt"></i>
+            <h3>Quick-Strike UI</h3>
+            <p>Lightning fast response times for mobile apps.</p>
+        </div>
+        <div class="product-card">
+            <i class="fas fa-layer-group"></i>
+            <h3>Stack Master</h3>
+            <p>Organize your project layers with semantic precision.</p>
+        </div>
+        <div class="product-card">
+            <i class="fas fa-shield-halved"></i>
+            <h3>Secure Node</h3>
+            <p>Encrypted modules for privacy-first developers.</p>
+        </div>
+    </div>
+
+    <section class="newsletter" id="newsletter">
+        <h2>Newsletter</h2>
+        <p style="color: var(--text-dim);">No spam. Just neon. Get early access to drops.</p>
+        <div class="input-group">
+            <input type="email" placeholder="Enter your email">
+            <button>SUBSCRIBE</button>
+        </div>
+    </section>
+
+    <div class="social-area">
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-x-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-dribbble"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2026 NEONLAB STUDIO. ALL RIGHTS RESERVED.
+    </footer>
+</div>
+
+<script>
+    // Live Search Logic
+    function filterProducts() {
+        const query = document.getElementById('productSearch').value.toLowerCase();
+        const cards = document.querySelectorAll('.product-card');
+        
+        cards.forEach(card => {
+            const content = card.textContent.toLowerCase();
+            card.style.display = content.includes(query) ? "block" : "none";
+        });
+    }
+
+    // Interaction feedback for the Newsletter button
+    document.querySelector('.input-group button').addEventListener('click', () => {
+        alert('Welcome to the Lab. Check your inbox soon!');
+    });
+</script>
+
+</body>
+</html>
